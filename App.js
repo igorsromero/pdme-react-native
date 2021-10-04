@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import Titulo from './components/Titulo';
-import FormDeCombustivel from './components/FormDeCombustivel';
+import Titulo from './components/Titulo/index.js';
+import FormDeCombustivel from './components/Formulario/index';
 
 export default function App() {
 
@@ -11,7 +11,7 @@ export default function App() {
     <View style={styles.container}>
       <Titulo />
       <FormDeCombustivel enviar={coletarDados} />
-      <Text>{combustivel}</Text>
+      <Text style={styles.textResultado}>{combustivel}</Text>
     </View>
   );
 
@@ -34,12 +34,33 @@ export default function App() {
 }
 
 
-
 const styles = StyleSheet.create({
-  container: {
+  resultado: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    borderRadius: 50,
+    alignItems: "center",
+    width: "100%",
+  },
+  textResultado: {
+    fontSize: 15,
+    color: "#FF0043",
+    fontWeight: "bold",
+    textAlign: 'center',
+
+  },
+  textMensagem: {
+    fontSize: 18,
+    color: "#ff0043",
+    fontWeight: "bold",
   },
 });
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: '#c0c0c0',
+//     paddingTop: 100,
+//     // alignItems: 'center',
+//     // justifyContent: 'center',
+//   },
+// });

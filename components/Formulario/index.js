@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { StyleSheet, TextInput, Button, View } from "react-native";
+import { Text, TextInput, View, TouchableOpacity } from "react-native";
+import styles from "./style.js";
 
 const FormDeCombustivel = ({ enviar }) => {
 
@@ -18,7 +19,7 @@ const FormDeCombustivel = ({ enviar }) => {
 
     return (
         <>
-            <View style={{ flexDirection: "row" }}>
+            <View style={styles.formContext}>
                 <TextInput
                     style={styles.input}
                     placeholder="Valor do Álcool"
@@ -37,8 +38,6 @@ const FormDeCombustivel = ({ enviar }) => {
                         setValorGasolina(event.nativeEvent.text)
                     }}
                 />
-            </View>
-            <View style={{ flexDirection: "row" }}>
                 <TextInput
                     style={styles.input}
                     placeholder="Consumo com Álcool"
@@ -57,30 +56,16 @@ const FormDeCombustivel = ({ enviar }) => {
                         setConsumoGasolina(event.nativeEvent.text)
                     }}
                 />
-            </View>
-            <View style={{ width: '98%' }}>
-                <Button onPress={calculaMelhor} style={styles.button} title="CALCULAR" ></Button>
+                <TouchableOpacity style={styles.buttonCalculator}
+                    onPress={() => {
+                        calculaMelhor()
+                    }}>
+                    <Text style={styles.textButtonCalculator}>CALCULAR</Text>
+                </TouchableOpacity>
             </View>
         </>
     );
 
 };
-
-
-
-const styles = StyleSheet.create({
-    input: {
-        flex: 1,
-        height: 40,
-        margin: 5,
-        borderWidth: 1,
-        padding: 10,
-    },
-    button: {
-        flex: 1,
-        alignSelf: "stretch",
-        width: 100
-    }
-});
 
 export default FormDeCombustivel;
